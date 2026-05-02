@@ -1,69 +1,175 @@
-# CodeIgniter 4 Application Starter
+# Plateforme de Gestion des Visites Médico-Scolaires
 
-## What is CodeIgniter?
+##  Description
+La **Plateforme de Gestion des Visites Médico-Scolaires** est une application web conçue pour **moderniser et simplifier l’organisation des visites médicales en milieu scolaire**.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Elle a pour objectif de :
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- réduire les longues files d’attente ;
+- optimiser la planification des visites médicales ;
+- faciliter la prise de rendez-vous en ligne ;
+- améliorer le suivi médical des étudiants ;
+- offrir une meilleure coordination entre les étudiants, le personnel médical et l’administration.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Cette solution centralise l’ensemble du processus afin de rendre la gestion des visites **plus rapide, plus efficace et plus transparente**.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+##  Objectifs du projet
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- Digitaliser la gestion des visites médico-scolaires ;
+- Réduire la surcharge administrative ;
+- Optimiser l’organisation des passages des étudiants ;
+- Assurer un meilleur suivi des résultats médicaux ;
+- Améliorer l’expérience utilisateur pour tous les acteurs.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+##  Utilisateurs de la plateforme
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+La plateforme est destinée à trois principaux profils :
 
-## Important Change with index.php
+- **Étudiants**
+- **Administration**
+- **Personnel Médical**
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+---
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+#  Fonctionnalités
 
-**Please** read the user guide for a better explanation of how CI4 works!
+##  Côté Étudiant
 
-## Repository Management
+Les étudiants peuvent :
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+✅ Consulter les périodes de visite médicale  
+✅ Prendre rendez-vous en ligne  
+✅ Recevoir des notifications de rappel  
+✅ Consulter leurs résultats médicaux  
+✅ Télécharger leurs résultats médicaux
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+##  Côté Administration
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+L’administration peut :
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+✅ Programmer les périodes de visite médicale  
+✅ Organiser les visites par **département** et **option**  
+✅ Limiter le nombre d’étudiants par créneau horaire  
+✅ Suivre l’état des rendez-vous (confirmé, en attente, effectué, annulé)
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+---
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+##  Côté Personnel Médical
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Le personnel médical peut :
+
+✅ Consulter les rendez-vous du jour  
+✅ Valider la présence des étudiants  
+✅ Saisir les résultats médicaux  
+✅ Ajouter des observations médicales  
+✅ Faire des recommandations sanitaires
+
+---
+
+##  Fonctionnement général
+
+### 1. Planification
+L’administration définit :
+
+- les périodes de visite ;
+- les créneaux horaires disponibles ;
+- les départements concernés ;
+- le quota maximum d’étudiants par session.
+
+### 2. Prise de rendez-vous
+Les étudiants :
+
+- consultent les disponibilités ;
+- choisissent un créneau ;
+- confirment leur rendez-vous.
+
+### 3. Notification
+Le système envoie :
+
+- des rappels automatiques ;
+- des confirmations de rendez-vous ;
+- des notifications de disponibilité des résultats.
+
+### 4. Consultation médicale
+Le personnel médical :
+
+- consulte la liste des rendez-vous ;
+- enregistre la présence ;
+- réalise la consultation ;
+- saisit les résultats.
+
+### 5. Publication des résultats
+Les étudiants peuvent :
+
+- consulter leurs résultats ;
+- télécharger leur fiche médicale.
+
+---
+
+##  Technologies possibles
+
+Selon l’implémentation, la plateforme peut être développée avec :
+CodeIgniter4
+
+### Base de données
+- MySQL
+  
+
+### Notifications
+- Email
+- SMS
+- Notifications push
+
+---
+
+##  Sécurité
+
+La plateforme devra garantir :
+
+- l’authentification des utilisateurs ;
+- la protection des données médicales ;
+- la confidentialité des dossiers ;
+- la gestion des rôles et permissions ;
+- la sauvegarde régulière des données.
+
+---
+
+##  Bénéfices attendus
+
+✔ Réduction du temps d’attente  
+✔ Meilleure organisation des visites  
+✔ Gain de temps pour l’administration  
+✔ Suivi médical simplifié  
+✔ Expérience utilisateur améliorée  
+✔ Centralisation des données
+
+---
+
+##  Aperçu futur
+
+À terme, la plateforme pourra intégrer :
+
+- tableau de bord analytique ;
+- statistiques de santé ;
+- génération automatique de rapports ;
+- intégration mobile ;
+- chatbot d’assistance.
+
+---
+
+##  Auteur
+
+Projet académique / professionnel visant la digitalisation de la gestion des visites médico-scolaires.
+
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence MIT.
