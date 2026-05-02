@@ -1,7 +1,7 @@
-# Plateforme de Gestion des Visites Médico-Scolaires
+# Plateforme de Gestion des Visites Médico-Sanitaires
 
 ##  Description
-La **Plateforme de Gestion des Visites Médico-Scolaires** est une application web conçue pour **moderniser et simplifier l’organisation des visites médicales en milieu scolaire**.
+La **Plateforme de Gestion des Visites Médico-Scolaires** est une application web conçue pour **moderniser et simplifier l’organisation des visites médicales a l'ecole nationale superieure polytechnique de Maroua**.
 
 Elle a pour objectif de :
 
