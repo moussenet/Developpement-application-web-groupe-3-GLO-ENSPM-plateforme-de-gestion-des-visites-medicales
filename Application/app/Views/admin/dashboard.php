@@ -117,7 +117,6 @@
     <span>Centre Médico-Sanitaire <em>ENSPM</em></span>
   </div>
   <div class="user">
-    <span>👤 <?= esc(session()->get('user_nom')) ?></span>
     <span style="background:rgba(255,255,255,0.15);padding:3px 9px;border-radius:4px;font-size:11px">
       Administrateur
     </span>
@@ -177,7 +176,7 @@
       <a href="<?= base_url('admin/users/create') ?>" class="action-card">
         <div class="action-text">
           <strong>Créer un compte</strong>
-          <span>Ajouter médecin ou administrateur</span>
+          <span>Ajouter médecin </span>
         </div>
       </a>
       <a href="<?= base_url('admin/periodes') ?>" class="action-card">

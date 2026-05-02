@@ -14,15 +14,37 @@ $routes->get('logout',    'Auth::logout');
 $routes->get('register',  'Auth::register');
 $routes->post('register', 'Auth::registerPost');
 
-// Espace étudiant — rôle : etudiant
+// Étudiant
 $routes->group('etudiant', ['filter' => 'role:etudiant'], function($routes) {
-    $routes->get('dashboard', 'Etudiant\Dashboard::index');
+    $routes->get('dashboard',                  'Etudiant\Dashboard::index');
+    $routes->get('periodes',                   'Etudiant\Periodes::index');
+    $routes->get('periodes/(:num)',            'Etudiant\Periodes::show/$1');
+    $routes->post('rendezvous/store',          'Etudiant\RendezVous::store');
+    $routes->get('rendezvous',                 'Etudiant\RendezVous::index');
+    $routes->post('rendezvous/annuler/(:num)', 'Etudiant\RendezVous::annuler/$1');
+    $routes->get('notifications',              'Etudiant\Notifications::index');
+    $routes->get('resultats',                  'Etudiant\Resultats::index');
 });
 
-// Espace médecin — rôle : medecin
+
+// Personnel médical
 $routes->group('medecin', ['filter' => 'role:medecin'], function($routes) {
-    $routes->get('dashboard', 'Medecin\Dashboard::index');
+    $routes->get('dashboard',                    'Medecin\Dashboard::index');
+    $routes->get('rendezvous',                   'Medecin\RendezVous::index');
+    $routes->post('rendezvous/presence/(:num)',  'Medecin\RendezVous::validerPresence/$1');
+    $routes->get('resultats/create/(:num)',      'Medecin\Resultats::create/$1');
+    $routes->post('resultats/store',             'Medecin\Resultats::store');
 });
+// Super Admin
+$routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) {
+    $routes->get('dashboard',              'SuperAdmin\Dashboard::index');
+    $routes->get('users',                  'SuperAdmin\Users::index');
+    $routes->get('users/create',           'SuperAdmin\Users::create');
+    $routes->post('users/store',           'SuperAdmin\Users::store');
+    $routes->post('users/toggle/(:num)',   'SuperAdmin\Users::toggleActif/$1');
+    $routes->post('users/delete/(:num)',   'SuperAdmin\Users::delete/$1');
+});
+
 
 // Espace admin — rôle : admin
 $routes->group('admin', ['filter' => 'role:admin'], function($routes) {

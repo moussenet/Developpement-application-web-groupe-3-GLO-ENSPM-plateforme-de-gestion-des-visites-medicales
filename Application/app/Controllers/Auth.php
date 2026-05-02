@@ -43,12 +43,17 @@ class Auth extends BaseController
                              ->with('error', 'Email ou mot de passe incorrect.');
         }
 
+        // Enregistrement en session — ajout departement et filiere
         session()->set([
-            'user_id'    => $user['id'],
-            'user_nom'   => $user['nom'] . ' ' . $user['prenom'],
-            'user_email' => $user['email'],
-            'role_name'  => $user['role_name'],
-            'logged_in'  => true,
+            'user_id'      => $user['id'],
+            'user_nom'     => $user['nom'] . ' ' . $user['prenom'],
+            'user_email'   => $user['email'],
+            'role_name'    => $user['role_name'],
+            'role_label'   => $user['role_label'],
+            'departement'  => $user['departement'] ?? null,
+            'filiere'      => $user['filiere'] ?? null,
+            'matricule'    => $user['matricule'] ?? null,
+            'logged_in'    => true,
         ]);
 
         return $this->redirectByRole($user['role_name']);
@@ -186,7 +191,7 @@ class Auth extends BaseController
                                    $this->request->getPost('password'),
                                    PASSWORD_DEFAULT
                                ),
-            'role_id' => 1,
+            'role_id' => 4,
             'actif'   => 1,
             'statut'  => 'actif',
         ]);
@@ -202,9 +207,10 @@ class Auth extends BaseController
     private function redirectByRole(string $role)
     {
         return match($role) {
-            'admin'   => redirect()->to(base_url('admin/dashboard')),
-            'medecin' => redirect()->to(base_url('medecin/dashboard')),
-            default   => redirect()->to(base_url('etudiant/dashboard')),
+            'superadmin' => redirect()->to(base_url('superadmin/dashboard')),
+            'admin'      => redirect()->to(base_url('admin/dashboard')),
+            'medecin'    => redirect()->to(base_url('medecin/dashboard')),
+            default      => redirect()->to(base_url('etudiant/dashboard')),
         };
     }
 }
