@@ -132,7 +132,7 @@
     <span>Centre Médico-Sanitaire <em>ENSPM</em></span>
   </div>
   <div class="user">
-    <span>👤 <?= esc(session()->get('user_nom')) ?></span>
+    <span> <?= esc(session()->get('user_nom')) ?></span>
     <span style="background:rgba(255,255,255,0.15);padding:3px 9px;
                  border-radius:4px;font-size:11px">Étudiant</span>
     <a href="<?= base_url('logout') ?>">Déconnexion</a>

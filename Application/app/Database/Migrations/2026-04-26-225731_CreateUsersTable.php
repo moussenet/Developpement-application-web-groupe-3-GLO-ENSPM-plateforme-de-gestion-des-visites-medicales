@@ -55,6 +55,19 @@ class CreateUsersTable extends Migration
                 'constraint' => 50,
                 'null'       => true,
             ],
+            'id_direction' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => true,
+                // Obligatoire pour les administrateurs
+                // Délivré par la direction de l'établissement
+            ],
+            'specialite' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+                'null'       => true,
+                // Spécialité du personnel médical
+            ],
             'actif' => [
                 'type'    => 'TINYINT',
                 'default' => 1,
@@ -75,11 +88,11 @@ class CreateUsersTable extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('role_id', 'roles', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('users');
+        $this->forge->createTable('users', true);
     }
 
     public function down(): void
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('users', true);
     }
 }
