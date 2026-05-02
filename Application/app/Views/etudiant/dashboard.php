@@ -184,22 +184,18 @@
     <!-- STATISTIQUES -->
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-icon" style="background:#E1F5EE"></div>
         <div class="stat-num"><?= $nb_periodes ?></div>
         <div class="stat-label">Périodes disponibles</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#E6F1FB"></div>
         <div class="stat-num"><?= $nb_rdv ?></div>
         <div class="stat-label">Mes rendez-vous</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#EAF3DE"></div>
         <div class="stat-num">0</div>
         <div class="stat-label">Résultats disponibles</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon" style="background:#FAEEDA"></div>
         <div class="stat-num">0</div>
         <div class="stat-label">Notifications</div>
       </div>
